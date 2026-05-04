@@ -79,6 +79,18 @@
     <div class="container has-text-centered is-max-widescreen">
       <h2 class="title is-3">Street Fighter II Comparison</h2>
 
+      <div class="control-legend" aria-label="SF2 button mapping">
+        <p class="legend-title">SF2 Button Mapping</p>
+        <div class="legend-grid">
+          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Kick (LK)</span></div>
+          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Medium Kick (MK)</span></div>
+          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Heavy Kick (HK)</span></div>
+          <div class="legend-item"><span class="legend-key">X</span><span class="legend-text">Light Punch (LP)</span></div>
+          <div class="legend-item"><span class="legend-key">Y</span><span class="legend-text">Medium Punch (MP)</span></div>
+          <div class="legend-item"><span class="legend-key">Z</span><span class="legend-text">Heavy Punch (HP)</span></div>
+        </div>
+      </div>
+
       <!-- SF2 Comparison Carousel -->
       <div id="sf2-comparison-carousel" class="carousel results-carousel">
         
@@ -296,6 +308,18 @@
   <div class="hero-body">
     <div class="container has-text-centered is-max-widescreen">
       <h2 class="title is-3">Street Fighter III Comparison</h2>
+
+      <div class="control-legend" aria-label="SF3 button mapping">
+        <p class="legend-title">SF3 Button Mapping</p>
+        <div class="legend-grid">
+          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Punch (LP)</span></div>
+          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Light Kick (LK)</span></div>
+          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Medium Kick (MK)</span></div>
+          <div class="legend-item"><span class="legend-key">X</span><span class="legend-text">Heavy Punch (HP)</span></div>
+          <div class="legend-item"><span class="legend-key">Y</span><span class="legend-text">Medium Punch (MP)</span></div>
+          <div class="legend-item"><span class="legend-key">Z</span><span class="legend-text">Heavy Kick (HK)</span></div>
+        </div>
+      </div>
 
       <!-- SF3 Comparison Carousel -->
       <div id="sf3-comparison-carousel" class="carousel results-carousel">
@@ -526,7 +550,7 @@
 
 .scenario-section {
   margin-bottom: 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .scenario-title {
@@ -540,6 +564,66 @@
   color: #1d4ed8;
   font-size: 0.98rem;
   line-height: 1.2;
+}
+
+.control-legend {
+  margin: 0 auto 1.2rem;
+  max-width: 860px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+  padding: 0.85rem 1rem 0.95rem;
+  text-align: left;
+}
+
+.legend-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem 0.6rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #e5eaf3;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  min-width: 0;
+}
+
+.legend-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 6px;
+  background: #1e40af;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.legend-text {
+  color: #334155;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Stable 3×3 grid layout */
@@ -674,10 +758,22 @@
   .video-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .legend-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .video-row {
+    grid-template-columns: 1fr;
+  }
+
+  .control-legend {
+    padding: 0.75rem 0.8rem 0.85rem;
+  }
+
+  .legend-grid {
     grid-template-columns: 1fr;
   }
 }

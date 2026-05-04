@@ -278,6 +278,15 @@
         </div>
 
       </div>
+
+      <div class="prompt-detail-panel" id="sf2-prompt-panel" aria-live="polite">
+        <div class="prompt-detail-header">
+          <h3 class="prompt-detail-title">Prompt Detail</h3>
+          <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf2-prompt-content">Copy Prompt</button>
+        </div>
+        <p class="prompt-detail-meta" id="sf2-prompt-meta">Click any video to view its full prompt.</p>
+        <pre class="prompt-detail-content" id="sf2-prompt-content">No prompt selected yet.</pre>
+      </div>
     </div>
   </div>
 </section>
@@ -487,6 +496,15 @@
         </div>
 
       </div>
+
+      <div class="prompt-detail-panel" id="sf3-prompt-panel" aria-live="polite">
+        <div class="prompt-detail-header">
+          <h3 class="prompt-detail-title">Prompt Detail</h3>
+          <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf3-prompt-content">Copy Prompt</button>
+        </div>
+        <p class="prompt-detail-meta" id="sf3-prompt-meta">Click any video to view its full prompt.</p>
+        <pre class="prompt-detail-content" id="sf3-prompt-content">No prompt selected yet.</pre>
+      </div>
     </div>
   </div>
 </section>
@@ -530,6 +548,16 @@
 
 .method-video {
   min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e8ecf4;
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.method-video:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
 .method-video video {
@@ -539,6 +567,62 @@
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.video-prompt-chip {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #475569;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prompt-detail-panel {
+  margin-top: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e8ecf4;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  padding: 1rem 1rem 0.9rem;
+  text-align: left;
+}
+
+.prompt-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.prompt-detail-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.prompt-detail-meta {
+  margin-bottom: 0.6rem;
+  color: #64748b;
+  font-size: 0.86rem;
+}
+
+.prompt-detail-content {
+  margin: 0;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: #1e293b;
+  font-size: 0.87rem;
+  line-height: 1.55;
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
 }
 
 /* Keep target aspect ratios without forcing fixed pixel width */
@@ -587,6 +671,99 @@
       pagination: true,
       infinite: true,
       navigation: true
+    });
+
+    const scenarioFromText = (titleText) => {
+      if (titleText.includes('Offense')) return 'Offense';
+      if (titleText.includes('Defense')) return 'Defense';
+      if (titleText.includes('Control')) return 'Control';
+      return 'Unknown';
+    };
+
+    const methodFromRow = (itemEl, videoEl) => {
+      const row = videoEl.closest('.video-row');
+      if (!row) return 'Unknown Method';
+      const rows = Array.from(itemEl.querySelectorAll('.video-row'));
+      const rowIndex = rows.indexOf(row);
+      if (rowIndex === 0) return 'Vanilla';
+      if (rowIndex === 1) return 'Base';
+      if (rowIndex === 2) return 'Transfer';
+      return 'Unknown Method';
+    };
+
+    const colFromVideo = (videoEl) => {
+      const card = videoEl.closest('.method-video');
+      const row = videoEl.closest('.video-row');
+      if (!card || !row) return 1;
+      const cards = Array.from(row.querySelectorAll('.method-video'));
+      return cards.indexOf(card) + 1;
+    };
+
+    const attachPromptInteractions = (sectionId, panelPrefix) => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      const promptMeta = document.getElementById(`${panelPrefix}-prompt-meta`);
+      const promptContent = document.getElementById(`${panelPrefix}-prompt-content`);
+
+      const items = section.querySelectorAll('.comp-item');
+      items.forEach((itemEl, itemIndex) => {
+        const scenarioTitle = itemEl.querySelector('.scenario-title');
+        const scenario = scenarioFromText(scenarioTitle ? scenarioTitle.textContent : '');
+
+        const videos = itemEl.querySelectorAll('.method-video video');
+        videos.forEach((videoEl) => {
+          const method = methodFromRow(itemEl, videoEl);
+          const sampleIndex = colFromVideo(videoEl);
+
+          const promptId = `${sectionId.toUpperCase()}-${scenario}-${method}-S${sampleIndex}`;
+          const promptText = `Prompt ID: ${promptId}\n\n[Replace this placeholder with your full prompt text]\n\nScenario: ${scenario}\nMethod: ${method}\nSample: ${sampleIndex}\nDataset: ${sectionId === 'sf2-comparison' ? 'Street Fighter II' : 'Street Fighter III'}`;
+
+          videoEl.dataset.promptId = promptId;
+          videoEl.dataset.promptText = promptText;
+
+          const card = videoEl.closest('.method-video');
+          if (card && !card.querySelector('.video-prompt-chip')) {
+            const chip = document.createElement('div');
+            chip.className = 'video-prompt-chip';
+            chip.textContent = promptId;
+            card.appendChild(chip);
+          }
+
+          videoEl.addEventListener('click', () => {
+            if (!promptMeta || !promptContent) return;
+            promptMeta.textContent = `Selected: ${promptId}`;
+            promptContent.textContent = promptText;
+          });
+        });
+      });
+    };
+
+    attachPromptInteractions('sf2-comparison', 'sf2');
+    attachPromptInteractions('sf3-comparison', 'sf3');
+
+    const copyButtons = document.querySelectorAll('.prompt-copy-btn');
+    copyButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-target');
+        const contentEl = targetId ? document.getElementById(targetId) : null;
+        if (!contentEl) return;
+
+        try {
+          await navigator.clipboard.writeText(contentEl.textContent || '');
+          const oldText = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => {
+            btn.textContent = oldText;
+          }, 1200);
+        } catch (e) {
+          const oldText = btn.textContent;
+          btn.textContent = 'Copy Failed';
+          setTimeout(() => {
+            btn.textContent = oldText;
+          }, 1200);
+        }
+      });
     });
   });
 </script>

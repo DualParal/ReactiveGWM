@@ -13,7 +13,6 @@
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-
   <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
   <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
@@ -23,8 +22,7 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Minute-Long Videos with Dual Parallelisms</title>
+  <title>ReactiveGWM: Steering NPC in Reactive Game World Models</title>
   <link rel="icon" type="image/png" href="static/images/icon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -47,22 +45,20 @@
 </head>
 <body>
 
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Minute-Long Videos with Dual Parallelisms</h1>
+            <h1 class="title is-1 publication-title">ReactiveGWM: Steering NPC in Reactive Game World Models</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
-              <!-- 修正标签错误，使用 span 标签并正确嵌套 -->
               <span class="author-block">Anonymous Author(s)</span>
             </div>
             
             <!-- Github link -->
             <span class="link-block">
-              <a href="https://anonymous.4open.science/r/DualParal_for_AAAI2026-476A/" target="_blank"
+              <a href="https://anonymous.4open.science/r/ReactiveGWM/" target="_blank"
               class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                 <i class="fab fa-github"></i>
@@ -77,503 +73,180 @@
     </div>
   </section>
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered is-max-desktop">
-      <h2 class="title is-3">Minute-Long Videos</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <!--source src="static/videos/carousel1.mp4" -->
-            <source src="static/videos/1 min/4.mp4"
-            type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            The video captures the majestic beauty of a waterfall cascading down a cliff into a serene lake.
-            The waterfall, with its powerful flow, is the central focus of the video.
-            The surrounding landscape is lush and green, with trees and foliage adding to the natural beauty of the scene.
-            The camera angle provides a bird's eye view of the waterfall, allowing viewers to appreciate the full height and grandeur of the waterfall.
-            The video is a stunning representation of nature's power and beauty. 
-          </h2>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/1 min/5.mp4"
-            type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            A snowy forest landscape with a dirt road running through it. 
-            The road is flanked by trees covered in snow, and the ground is also covered in snow. 
-            The sun is shining, creating a bright and serene atmosphere. 
-            The road appears to be empty, and there are no people or animals visible in the video. 
-            The style of the video is a natural landscape shot, with a focus on the beauty of the snowy forest and the peacefulness of the road. 
-          </h2>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/1 min/6.mp4"
-            type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            Slow pan upward of blazing oak fire in an indoor fireplace.
-          </h2>
-        </div>
-        <div class="item item-video4">
-          <video poster="" id="video4" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/1 min/7.mp4"
-            type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            At dawn on a serene beach, the waves softly wash over the shore, while the sky displays shades of orange, soft pink, and light blue. 
-            As the sun rises, its golden rays illuminate the water, causing it to glisten with warm colors. 
-            The fine white sand reflects the morning light, enhancing the peaceful atmosphere of this beautiful scene. 
-          </h2>
-        </div>
-        <div class="item item-video5">
-          <video poster="" id="video5" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/1 min/8.mp4"
-            type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            A dark knight riding slowly on a black horse through the city, photorealistic, 4k, high definition. 
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-<!-- Comparison (Carousel, single row, no extra buttons) -->
+<!-- Method Comparison Section -->
 <section class="hero is-small" id="comparison">
   <div class="hero-body">
     <div class="container has-text-centered is-max-widescreen">
-      <h2 class="title is-3">Comparison</h2>
+      <h2 class="title is-3">Method Comparison</h2>
 
-      <!-- 单行轮播：每个 item 是同一条 prompt 的四个方法视频 -->
+      <!-- Comparison Carousel -->
       <div id="comparison-carousel" class="carousel results-carousel">
-        <!-- Item 1 -->
-        <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/3.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/3.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/3.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/3.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-          </div>
-
-          <!-- 直接展示 prompt 文本 -->
-          <h2 class="subtitle has-text-centered">
-            A vibrant cherry blossom festival in full bloom. Petals drift gently in the breeze, crowds wander along tree-lined paths, lanterns sway softly, and sunlight filters through pink blossoms. The camera pans and tilts dynamically, capturing delicate flowers, joyful faces, and the festive atmosphere in high-resolution detail.
-          </h2>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/4.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/4.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/4.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/4.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-          </div>
-
-          <!-- 直接展示 prompt 文本 -->
-          <h2 class="subtitle has-text-centered">
-            [4k, Film Composition,f1.8]Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field.
-          </h2>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/A_person_wearing_a_dark_blue_shirt_is_gently_petti.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/A person wearing a dark b.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/A person wearing a dark blue shirt is gently petting a tabby ca.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/A person wearing a dark blue shirt is gently petting a tabby ca.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-          </div>
-
-          <!-- 直接展示 prompt 文本 -->
-          <h2 class="subtitle has-text-centered">
-            A person wearing a dark blue shirt is gently petting a tabby cat lying on a red table. The cat, adorned with a white garment featuring cartoon characters, appears relaxed and content as the person strokes its head and body. The background is plain and light-colored, keeping the focus on the interaction between the person and the cat.
-          </h2>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/A_young_man_with_soft_features_and_an_expression.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/A young man, with soft fe.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/A young man, with soft features and an expression of serene astonishment, is s.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/A young man, with soft fe.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-          </div>
-
-          <h2 class="subtitle has-text-centered">
-            A young man, with soft features and an expression of serene astonishment, is slowly drifting above a sun-drenched field of swaying grass. Filmed in a retro cinematic style with warm golden tones and slight grain, side light accentuates the texture of his tousled hair as the wind gently brushes through it.
-          </h2>
-        </div>
         
-        <!-- Item 5 -->
+        <!-- Offense Scenario -->
         <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/2.mp4"
-                     autoplay controls muted loop playsinline></video>
+          <div class="columns">
+            <!-- Left Column: Method Names -->
+            <div class="column is-2">
+              <div class="method-names">
+                <h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Base</h3>
+                <h3 class="method-title is-size-4">Transfer</h3>
+              </div>
             </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/2.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/2.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/2.mp4"
-                     autoplay controls muted loop playsinline></video>
+            
+            <!-- Right Column: Videos -->
+            <div class="column is-10">
+              <div class="scenario-section">
+                <h4 class="scenario-title is-size-4 has-text-weight-semibold">Offense</h4>
+                <div class="method-videos">
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <h2 class="subtitle has-text-centered">
-            Inside a futuristic high-tech factory, a humanoid robot meticulously assembles mechanical components. The camera tracks along robotic arms and glowing conveyor belts as sparks flash. Holographic displays light the metallic interior, showing blue data streams. The scene feels alive with precision, motion, and the hum of advanced machines working in harmony.
-          </h2>
         </div>
 
-        <!-- Item 6 -->
+        <!-- Defense Scenario -->
         <div class="item comp-item">
-          <div class="method-videos">
-            <div class="method-video">
-              <h3 class="method-title">Ulysses</h3>
-              <video src="static/videos/comparision/Ulysses/1.mp4"
-                     autoplay controls muted loop playsinline></video>
+          <div class="columns">
+            <!-- Left Column: Method Names -->
+            <div class="column is-2">
+              <div class="method-names">
+                <h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Base</h3>
+                <h3 class="method-title is-size-4">Transfer</h3>
+              </div>
             </div>
-            <div class="method-video">
-              <h3 class="method-title">Video_Infinity</h3>
-              <video src="static/videos/comparision/Video_Infinity/1.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">FIFO</h3>
-              <video src="static/videos/comparision/FIFO/1.mp4"
-                     autoplay controls muted loop playsinline></video>
-            </div>
-            <div class="method-video">
-              <h3 class="method-title">DualParal</h3>
-              <video src="static/videos/comparision/DualParal/1.mp4"
-                     autoplay controls muted loop playsinline></video>
+            
+            <!-- Right Column: Videos -->
+            <div class="column is-10">
+              <div class="scenario-section">
+                <h4 class="scenario-title is-size-4 has-text-weight-semibold">Defense</h4>
+                <div class="method-videos">
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <h2 class="subtitle has-text-centered">
-            A playful beagle wearing sleek diving goggles swims energetically through the ocean. The camera follows its fluid motion in first-person perspective, capturing the sparkle of sunlight through turquoise waves. Colorful coral reefs sway below, bubbles rise toward the surface, and tiny fish dart playfully around, adding depth and life to the underwater world.
-          </h2>
         </div>
 
-        <!-- 如需更多比较组，复制上面 <div class="item comp-item"> ... </div> 结构继续添加 -->
+        <!-- Control Scenario -->
+        <div class="item comp-item">
+          <div class="columns">
+            <!-- Left Column: Method Names -->
+            <div class="column is-2">
+              <div class="method-names">
+                <h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Base</h3>
+                <h3 class="method-title is-size-4">Transfer</h3>
+              </div>
+            </div>
+            
+            <!-- Right Column: Videos -->
+            <div class="column is-10">
+              <div class="scenario-section">
+                <h4 class="scenario-title is-size-4 has-text-weight-semibold">Control</h4>
+                <div class="method-videos">
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                  <div class="method-video">
+                    <video src="static/videos/placeholder.mp4"
+                           autoplay controls muted loop playsinline></video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
+<!-- Custom CSS for the new layout -->
+<style>
+.method-names {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 2rem 0;
+}
 
-<!-- Prompt Modal -->
-<div id="prompt-modal" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4>Prompt Details</h4>
-      <button class="delete" aria-label="close"></button>
-    </div>
-    <div class="modal-body">
-      <p id="modal-prompt"></p>
-    </div>
-  </div>
-</div>
+.method-title {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.scenario-section {
+  margin-bottom: 2rem;
+}
+
+.scenario-title {
+  margin-bottom: 1rem;
+  color: #3273dc;
+}
+
+.method-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.method-video video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.comp-item {
+  padding: 2rem 0;
+}
+</style>
 
 <script>
-  // 初始化模态框
+  // Initialize carousel for scenario switching
   document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('prompt-modal');
-    const buttons = document.querySelectorAll('.prompt-button, .bottom-prompt-button');
-    const closeButton = document.querySelector('.delete');
-    const modalBackground = document.querySelector('.modal-background');
-    const modalPrompt = document.getElementById('modal-prompt');
-    
-    // 点击按钮显示模态框
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const prompt = button.getAttribute('data-prompt');
-        modalPrompt.textContent = prompt;
-        modal.classList.add('is-active');
-      });
-    });
-    
-    // 关闭模态框
-    closeButton.addEventListener('click', () => {
-      modal.classList.remove('is-active');
-    });
-    
-    modalBackground.addEventListener('click', () => {
-      modal.classList.remove('is-active');
-    });
-    
-    // ESC键关闭模态框
-    document.addEventListener('keydown', (event) => {
-      if (event.code === 'Escape') {
-        modal.classList.remove('is-active');
-      }
+    const carousel = bulmaCarousel.attach('#comparison-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      pagination: true,
+      infinite: true,
+      navigation: true
     });
   });
 </script>
 
-
-<!-- Video Gallery -->
-<section class="hero is-small" id="gallery">
-  <div class="hero-body">
-        <div class="container is-fluid">
-      <h2 class="title is-3 has-text-centered">Gallery</h2>
-
-      <!-- Row 1: WAN2.1 -->
-      <div class="gallery-row">
-        <div class="row-title">
-          <span class="method-badge">WAN2.1</span>
-        </div>
-        <div class="row-carousel">
-          <div id="gallery-carousel-1" class="carousel results-carousel custom-carousel">
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.1/2.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="Film quality, professional quality, rich details. The video begins to show the surface of a pond, and the camera slowly zooms in to a close-up. The water surface begins to bubble, and then a blonde woman is seen coming out of the lotus pond soaked all over, showing the subtle changes in her facial expression, creating a dreamy atmosphere.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.1/9.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="An exquisite macro shot captures a blooming rose in vibrant motion, as delicate petals unfurl gracefully, glistening dew drops dance in the sunlight, revealing nature's breathtaking beauty with stunning detail and rich colors., 4k, high definition.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.1/10.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="An exhilarating white water rafting experience unfolds, with waves crashing against the sturdy raft and excited participants cheering, surrounded by breathtaking natural scenery that heightens the thrill.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.1/11.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="A panoramic view of the Milky Way, ultra HD.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.1/12.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="A mysterious foggy forest at dawn, high quality, 4K.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2: WAN2.2  (示例复用同一批视频，按需把 src 换成第二行素材) -->
-      <div class="gallery-row">
-        <div class="row-title">
-          <span class="method-badge">WAN2.2</span>
-        </div>
-        <div class="row-carousel">
-          <div id="gallery-carousel-2" class="carousel results-carousel custom-carousel">
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.2/1.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="A white-suited astronaut with a gold visor spins in dark space, tethered by a drifting cable. Stars twinkle around him as Earth glows blue in the distance. His suit reflects faint starlight against the vastness of the cosmos.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.2/2.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="A flock of birds glides through the warm sunset sky, wings outstretched. Their feathers catch golden light as they soar above silhouetted treetops, with the sky glowing in soft hues of amber and pink.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.2/3.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="A colony of penguins waddles across a vast Antarctic ice sheet under golden evening light. The camera moves low to the ground, following their synchronized steps as wind sweeps across drifting snow. Reflections shimmer on the ice surface, and distant glaciers glow softly in the fading sunlight, evoking a peaceful natural rhythm.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.2/4.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="[Van Gogh Style] A rajidae fish swims gracefully through swirling blue waters painted in Van Gogh’s signature texture. The camera glides beside it, revealing coral reefs rendered in thick, vivid brushstrokes. Light ripples across the ocean floor, colors shift dynamically, and each movement of the fish leaves behind subtle trails of luminous pigment.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="gallery-item-wrapper">
-                <video autoplay controls muted loop playsinline>
-                  <source src="static/videos/16s_wan2.2/5.mp4" type="video/mp4">
-                </video>
-                <button class="bottom-prompt-button" data-prompt="[4K, Film Composition, f1.8] A cinematic close-up of an astronaut floating weightlessly in deep space. The camera slowly orbits, capturing reflections of distant galaxies on the astronaut’s visor. Stars shimmer in breathtaking clarity, the Earth rotates far below, and faint lens flares evoke a sense of isolation, awe, and quiet majesty in the cosmic expanse.">
-                  View Prompt
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- End Video Gallery-->
-
-
-<!--BibTex citation -->
-<!--  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section> -->
-<!--End BibTex citation -->
-
-
-<!--  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>-->
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>  </html>

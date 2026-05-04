@@ -515,7 +515,7 @@
   color: #3273dc;
 }
 
-/* 3×3 Grid Layout for SF2 Videos (480×608) */
+/* Stable 3×3 grid layout */
 .method-videos-grid {
   display: flex;
   flex-direction: column;
@@ -523,46 +523,47 @@
 }
 
 .video-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  justify-content: space-between;
+}
+
+.method-video {
+  min-width: 0;
 }
 
 .method-video video {
+  display: block;
   width: 100%;
-  height: 200px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Specific dimensions for SF2 videos */
+/* Keep target aspect ratios without forcing fixed pixel width */
 #sf2-comparison .method-video video {
-  width: 480px;
-  height: 608px;
-  object-fit: cover;
+  aspect-ratio: 480 / 608;
+}
+
+#sf3-comparison .method-video video {
+  aspect-ratio: 480 / 832;
 }
 
 .comp-item {
   padding: 2rem 0;
 }
 
-/* Ensure proper spacing for the grid layout */
-.method-video {
-  flex: 1;
-  min-width: 0;
+/* Responsive adjustments */
+@media (max-width: 1215px) {
+  .video-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .video-row {
-    flex-direction: column;
-  }
-  
-  #sf2-comparison .method-video video,
-  #sf3-comparison .method-video video {
-    width: 100%;
-    height: auto;
+    grid-template-columns: 1fr;
   }
 }
 </style>

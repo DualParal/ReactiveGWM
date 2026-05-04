@@ -686,23 +686,135 @@
 <script>
   // Initialize carousels for scenario switching
   document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Street Fighter II comparison carousel
-    const sf2Carousel = bulmaCarousel.attach('#sf2-comparison-carousel', {
+    bulmaCarousel.attach('#sf2-comparison-carousel', {
       slidesToScroll: 1,
       slidesToShow: 1,
       pagination: true,
       infinite: true,
       navigation: true
     });
-    
-    // Initialize Street Fighter III comparison carousel
-    const sf3Carousel = bulmaCarousel.attach('#sf3-comparison-carousel', {
+
+    bulmaCarousel.attach('#sf3-comparison-carousel', {
       slidesToScroll: 1,
       slidesToShow: 1,
       pagination: true,
       infinite: true,
       navigation: true
     });
+
+    const ROOT = '../demo_other_overlay_chosen';
+    const METHODS = ['vanilla', 'base', 'transfer'];
+
+    const mediaMap = {
+      sf2: {
+        Offense: {
+          vanilla: [
+            { id: 'clip_0235391', dir: 'vanilla/Offense' },
+            { id: 'clip_0360986', dir: 'vanilla/Offense' },
+            { id: 'clip_0469879', dir: 'vanilla/Offense' }
+          ],
+          base: [
+            { id: 'clip_0054360', dir: 'base/offense' },
+            { id: 'clip_0180682', dir: 'base/offense' },
+            { id: 'clip_0361046', dir: 'base/offense' }
+          ],
+          transfer: [
+            { id: 'clip_0325693', dir: 'transfer/Offense' },
+            { id: 'clip_0361046', dir: 'transfer/Offense' },
+            { id: 'clip_0469842', dir: 'transfer/Offense' }
+          ]
+        },
+        Defense: {
+          vanilla: [
+            { id: 'clip_0018573', dir: 'vanilla/Defense' },
+            { id: 'clip_0054601', dir: 'vanilla/Defense' },
+            { id: 'clip_0145168', dir: 'vanilla/Defense' }
+          ],
+          base: [
+            { id: 'clip_0036418', dir: 'base/defense' },
+            { id: 'clip_0090256', dir: 'base/defense' },
+            { id: 'clip_0307012', dir: 'base/defense' }
+          ],
+          transfer: [
+            { id: 'clip_0036418', dir: 'transfer/Defense' },
+            { id: 'clip_0325219', dir: 'transfer/Defense' },
+            { id: 'clip_0343671', dir: 'transfer/Defense' }
+          ]
+        },
+        Control: {
+          vanilla: [
+            { id: 'clip_0000013', dir: 'vanilla/Control' },
+            { id: 'clip_0072746', dir: 'vanilla/Control' },
+            { id: 'clip_0162732', dir: 'vanilla/Control' }
+          ],
+          base: [
+            { id: 'clip_0054797', dir: 'base/control' },
+            { id: 'clip_0072746', dir: 'base/control' },
+            { id: 'clip_0289293', dir: 'base/control' }
+          ],
+          transfer: [
+            { id: 'clip_0000118', dir: 'transfer/Control' },
+            { id: 'clip_0072800', dir: 'transfer/Control' },
+            { id: 'clip_0415793', dir: 'transfer/Control' }
+          ]
+        }
+      },
+      sf3: {
+        Offense: {
+          vanilla: [
+            { id: 'clip_0001404', dir: 'vanilla/Offense' },
+            { id: 'clip_0169946', dir: 'vanilla/Offense' },
+            { id: 'clip_0217256', dir: 'vanilla/Offense' }
+          ],
+          base: [
+            { id: 'clip_0408176', dir: 'base/offense' },
+            { id: 'clip_0408836', dir: 'base/offense' },
+            { id: 'clip_0553034', dir: 'base/offense' }
+          ],
+          transfer: [
+            { id: 'clip_0048605', dir: 'transfer/Offense' },
+            { id: 'clip_0169861', dir: 'transfer/Offense' },
+            { id: 'clip_0169946', dir: 'transfer/Offense' }
+          ]
+        },
+        Defense: {
+          vanilla: [
+            { id: 'clip_0049423', dir: 'vanilla/Defense' },
+            { id: 'clip_0072358', dir: 'vanilla/Defense' },
+            { id: 'clip_0096390', dir: 'vanilla/Defense' }
+          ],
+          base: [
+            { id: 'clip_0192565', dir: 'base/defense' },
+            { id: 'clip_0384890', dir: 'base/defense' },
+            { id: 'clip_0648405', dir: 'base/defense' }
+          ],
+          transfer: [
+            { id: 'clip_0288168', dir: 'transfer/Defense' },
+            { id: 'clip_0648405', dir: 'transfer/Defense' },
+            { id: 'clip_0696953', dir: 'transfer/Defense' }
+          ]
+        },
+        Control: {
+          vanilla: [
+            { id: 'clip_0025156', dir: 'vanilla/Control' },
+            { id: 'clip_0168607', dir: 'vanilla/Control' },
+            { id: 'clip_0600338', dir: 'vanilla/Control' }
+          ],
+          base: [
+            { id: 'clip_0121277', dir: 'base/control' },
+            { id: 'clip_0505910', dir: 'base/control' },
+            { id: 'clip_0744919', dir: 'base/control' }
+          ],
+          transfer: [
+            { id: 'clip_0505553', dir: 'transfer/Control' },
+            { id: 'clip_0648300', dir: 'transfer/Control' },
+            { id: 'clip_0672317', dir: 'transfer/Control' }
+          ]
+        }
+      }
+    };
+
+    const promptCache = new Map();
 
     const scenarioFromText = (titleText) => {
       if (titleText.includes('Offense')) return 'Offense';
@@ -711,66 +823,75 @@
       return 'Unknown';
     };
 
-    const methodFromRow = (itemEl, videoEl) => {
-      const row = videoEl.closest('.video-row');
-      if (!row) return 'Unknown Method';
-      const rows = Array.from(itemEl.querySelectorAll('.video-row'));
-      const rowIndex = rows.indexOf(row);
-      if (rowIndex === 0) return 'Vanilla';
-      if (rowIndex === 1) return 'Base';
-      if (rowIndex === 2) return 'Transfer';
-      return 'Unknown Method';
-    };
-
-    const colFromVideo = (videoEl) => {
-      const card = videoEl.closest('.method-video');
-      const row = videoEl.closest('.video-row');
-      if (!card || !row) return 1;
-      const cards = Array.from(row.querySelectorAll('.method-video'));
-      return cards.indexOf(card) + 1;
+    const resolveAsset = (dataset, scenario, method, idx) => {
+      const item = mediaMap?.[dataset]?.[scenario]?.[method]?.[idx];
+      if (!item) return null;
+      const base = `${ROOT}/${dataset}/${item.dir}/${item.id}`;
+      return {
+        id: item.id,
+        video: `${base}_overlay.mp4`,
+        prompt: `${base}_prompt.txt`
+      };
     };
 
     const attachPromptInteractions = (sectionId, panelPrefix) => {
       const section = document.getElementById(sectionId);
       if (!section) return;
 
+      const dataset = sectionId.includes('sf2') ? 'sf2' : 'sf3';
       const promptMeta = document.getElementById(`${panelPrefix}-prompt-meta`);
       const promptContent = document.getElementById(`${panelPrefix}-prompt-content`);
-
       const items = section.querySelectorAll('.comp-item');
-      items.forEach((itemEl, itemIndex) => {
+
+      items.forEach((itemEl) => {
         const scenarioTitle = itemEl.querySelector('.scenario-title');
         const scenario = scenarioFromText(scenarioTitle ? scenarioTitle.textContent : '');
+        const rows = itemEl.querySelectorAll('.video-row');
 
-        const videos = itemEl.querySelectorAll('.method-video video');
-        videos.forEach((videoEl) => {
-          const method = methodFromRow(itemEl, videoEl);
-          const sampleIndex = colFromVideo(videoEl);
+        rows.forEach((rowEl, rowIndex) => {
+          const method = METHODS[rowIndex] || 'vanilla';
+          const videos = rowEl.querySelectorAll('.method-video video');
 
-          const promptId = `${sectionId.toUpperCase()}-${scenario}-${method}-S${sampleIndex}`;
-          const promptText = `Prompt ID: ${promptId}\n\n[Replace this placeholder with your full prompt text]\n\nScenario: ${scenario}\nMethod: ${method}\nSample: ${sampleIndex}\nDataset: ${sectionId === 'sf2-comparison' ? 'Street Fighter II' : 'Street Fighter III'}`;
+          videos.forEach((videoEl, colIndex) => {
+            const asset = resolveAsset(dataset, scenario, method, colIndex);
+            if (!asset) return;
 
-          videoEl.dataset.promptId = promptId;
-          videoEl.dataset.promptText = promptText;
+            videoEl.src = asset.video;
+            videoEl.dataset.promptId = asset.id;
+            videoEl.dataset.promptPath = asset.prompt;
+            videoEl.load();
 
-          const card = videoEl.closest('.method-video');
-          if (card && !card.querySelector('.video-prompt-chip')) {
-            const chip = document.createElement('div');
-            chip.className = 'video-prompt-chip';
-            chip.textContent = promptId;
-            card.appendChild(chip);
-          }
+            const card = videoEl.closest('.method-video');
+            if (card && !card.querySelector('.video-prompt-chip')) {
+              const chip = document.createElement('div');
+              chip.className = 'video-prompt-chip';
+              chip.textContent = asset.id;
+              card.appendChild(chip);
+            }
 
-          videoEl.addEventListener('click', () => {
-            if (!promptMeta || !promptContent) return;
+            videoEl.addEventListener('click', async () => {
+              if (!promptMeta || !promptContent) return;
 
-            const allCards = section.querySelectorAll('.method-video');
-            allCards.forEach((el) => el.classList.remove('selected'));
-            const currentCard = videoEl.closest('.method-video');
-            if (currentCard) currentCard.classList.add('selected');
+              const allCards = section.querySelectorAll('.method-video');
+              allCards.forEach((el) => el.classList.remove('selected'));
+              const currentCard = videoEl.closest('.method-video');
+              if (currentCard) currentCard.classList.add('selected');
 
-            promptMeta.textContent = `Selected: ${promptId}`;
-            promptContent.textContent = promptText;
+              promptMeta.textContent = `Selected: ${asset.id} · ${scenario} · ${method}`;
+              promptContent.textContent = 'Loading prompt...';
+
+              try {
+                if (!promptCache.has(asset.prompt)) {
+                  const resp = await fetch(asset.prompt);
+                  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                  const text = await resp.text();
+                  promptCache.set(asset.prompt, text.trim());
+                }
+                promptContent.textContent = promptCache.get(asset.prompt) || 'Prompt is empty.';
+              } catch (e) {
+                promptContent.textContent = `Failed to load prompt from: ${asset.prompt}`;
+              }
+            });
           });
         });
       });

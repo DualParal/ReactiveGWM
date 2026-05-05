@@ -891,9 +891,6 @@
 .method-video {
   min-width: 0;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   background: #ffffff;
   border: 1px solid #e8ecf4;
   border-radius: 10px;
@@ -913,12 +910,28 @@
 
 .method-video video {
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   cursor: pointer;
+}
+
+#sf2-comparison .method-video video {
+  aspect-ratio: 608 / 480;
+}
+
+#sf3-comparison .method-video video {
+  aspect-ratio: 832 / 480;
+}
+
+/* Keep transfer row adaptive to avoid cropping after cross-game swap */
+.video-row:nth-child(3) .method-video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: unset;
 }
 
 .video-prompt-chip {

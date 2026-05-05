@@ -912,7 +912,9 @@
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #070b14;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   cursor: pointer;
@@ -989,14 +991,7 @@
   white-space: pre-wrap;
 }
 
-/* Keep target aspect ratios without forcing fixed pixel width */
-#sf2-comparison .method-video video {
-  aspect-ratio: 608 / 480;
-}
-
-#sf3-comparison .method-video video {
-  aspect-ratio: 832 / 480;
-}
+/* Use unified frame ratio so all methods keep tidy alignment and full visibility */
 
 .comp-item {
   padding: 2rem 0;

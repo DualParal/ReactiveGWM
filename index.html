@@ -179,9 +179,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -244,9 +244,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -309,9 +309,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -409,9 +409,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -474,9 +474,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -539,9 +539,9 @@
             <!-- Left Column: Method Names -->
             <div class="column is-2">
               <div class="method-names">
-                <h3 class="method-title is-size-4">Transfer</h3>
-<h3 class="method-title is-size-4">Vanilla</h3>
+                <h3 class="method-title is-size-4">Vanilla</h3>
 <h3 class="method-title is-size-4">Base</h3>
+<h3 class="method-title is-size-4">Transfer</h3>
               </div>
             </div>
             
@@ -1080,7 +1080,7 @@
     });
 
     const ROOT = 'static/data/demo_other_overlay_chosen';
-    const METHODS = ['transfer', 'vanilla', 'base'];
+    const METHODS = ['vanilla', 'base', 'transfer'];
 
     const mediaMap = {
       sf2: {
@@ -1201,9 +1201,12 @@
     };
 
     const resolveAsset = (dataset, scenario, method, idx) => {
-      const item = mediaMap?.[dataset]?.[scenario]?.[method]?.[idx];
+      const sourceDataset = method === 'transfer'
+        ? (dataset === 'sf2' ? 'sf3' : dataset === 'sf3' ? 'sf2' : dataset)
+        : dataset;
+      const item = mediaMap?.[sourceDataset]?.[scenario]?.[method]?.[idx];
       if (!item) return null;
-      const base = `${ROOT}/${dataset}/${item.dir}/${item.id}`;
+      const base = `${ROOT}/${sourceDataset}/${item.dir}/${item.id}`;
       return {
         id: item.id,
         video: `${base}_overlay.mp4`,

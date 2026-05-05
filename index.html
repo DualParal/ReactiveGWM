@@ -79,8 +79,7 @@
         <div class="config-overview-head has-text-centered">
           <h2 class="title is-3">Configuration Overview</h2>
           <p class="config-overview-subtitle">
-            The three settings only differ on two key axes:
-            <strong>training source</strong> and <strong>NPC strategy following</strong>.
+            The differences are centered on <strong>training source</strong> and whether <strong>strategy data</strong> is used.
           </p>
         </div>
 
@@ -93,11 +92,11 @@
             <ul class="cfg-metric-list">
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Training source</span>
-                <span class="cfg-metric-value">This game only</span>
+                <span class="cfg-metric-value">Trained on this game<br><span class="cfg-note">(no strategy labels)</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value cfg-muted">Not used</span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-no">Not used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
@@ -114,11 +113,11 @@
             <ul class="cfg-metric-list">
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Training source</span>
-                <span class="cfg-metric-value">This game</span>
+                <span class="cfg-metric-value">Trained on this game<br><span class="cfg-note">(with strategy labels)</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value">Used</span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-yes">Used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
@@ -135,11 +134,11 @@
             <ul class="cfg-metric-list">
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Training source</span>
-                <span class="cfg-metric-value">Another game</span>
+                <span class="cfg-metric-value">No training on this game<br><span class="cfg-note">— strategy reused from a different game</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value">Used</span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-yes">Used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
@@ -644,6 +643,7 @@
   background: #ffffff;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
   padding: 0.95rem 0.9rem 0.8rem;
+  overflow: hidden;
 }
 
 .cfg-card-top {
@@ -651,15 +651,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  margin-bottom: 0.65rem;
-  padding-bottom: 0.55rem;
+  margin: -0.95rem -0.9rem 0.7rem;
+  padding: 0.58rem 0.78rem;
   border-bottom: 1px solid #e7edf6;
 }
 
 .cfg-title {
   margin: 0;
   font-size: 1.12rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #0f172a;
 }
 
@@ -667,15 +667,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.18rem 0.52rem;
+  padding: 0.2rem 0.56rem;
   border-radius: 999px;
   font-size: 0.67rem;
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #1e293b;
-  background: #eef2f7;
-  border: 1px solid #dbe3ef;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
   white-space: nowrap;
 }
 
@@ -688,8 +688,8 @@
 .cfg-metric {
   display: flex;
   flex-direction: column;
-  gap: 0.14rem;
-  padding: 0.42rem 0;
+  gap: 0.16rem;
+  padding: 0.45rem 0;
   border-bottom: 1px dashed #e6edf7;
   min-height: 3.05rem;
 }
@@ -713,9 +713,35 @@
   font-weight: 600;
 }
 
-.cfg-muted {
+.cfg-note {
   color: #64748b;
+  font-size: 0.82rem;
   font-weight: 500;
+}
+
+.cfg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.7rem;
+  padding: 0.18rem 0.58rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  border: 1px solid transparent;
+}
+
+.cfg-badge-yes {
+  color: #166534;
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.cfg-badge-no {
+  color: #991b1b;
+  background: #fee2e2;
+  border-color: #fca5a5;
 }
 
 .cfg-yes {
@@ -733,15 +759,27 @@
 }
 
 .cfg-vanilla {
-  border-top: 3px solid #a1a1aa;
+  border-top: 3px solid #9ca3af;
 }
 
 .cfg-base {
-  border-top: 3px solid #fb923c;
+  border-top: 3px solid #f59e0b;
 }
 
 .cfg-transfer {
   border-top: 3px solid #22c55e;
+}
+
+.cfg-vanilla .cfg-card-top {
+  background: linear-gradient(180deg, #f5f6f8 0%, #eef1f5 100%);
+}
+
+.cfg-base .cfg-card-top {
+  background: linear-gradient(180deg, #fff5e6 0%, #ffedd5 100%);
+}
+
+.cfg-transfer .cfg-card-top {
+  background: linear-gradient(180deg, #effdf2 0%, #dcfce7 100%);
 }
 
 .method-names {

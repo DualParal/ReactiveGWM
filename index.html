@@ -73,6 +73,70 @@
     </div>
   </section>
 
+  <section class="hero is-small config-overview-section" id="config-overview">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="config-overview-head has-text-centered">
+          <h2 class="title is-3">Configuration Overview</h2>
+          <p class="config-overview-subtitle">
+            Compare how <strong>Vanilla</strong>, <strong>ReactiveGWM (Base)</strong>, and <strong>ReactiveGWM<sub>transfer</sub></strong>
+            differ in training data and strategy-following capability.
+          </p>
+        </div>
+
+        <div class="config-cards">
+          <article class="cfg-card cfg-vanilla">
+            <div class="cfg-hero-icon" aria-hidden="true">💤</div>
+            <h3 class="cfg-title">Vanilla</h3>
+            <div class="cfg-role-tag">Baseline</div>
+            <hr class="cfg-divider">
+
+            <div class="cfg-row">
+              <p class="cfg-row-label">📥 Trained on</p>
+              <p class="cfg-row-value"><span class="cfg-em">This game</span><br><span class="cfg-muted">No strategy data</span></p>
+            </div>
+            <div class="cfg-row">
+              <p class="cfg-row-label">🎯 NPC strategy</p>
+              <p class="cfg-row-value cfg-no">✗ None</p>
+            </div>
+          </article>
+
+          <article class="cfg-card cfg-reactive">
+            <div class="cfg-hero-icon" aria-hidden="true">🎯</div>
+            <h3 class="cfg-title">ReactiveGWM</h3>
+            <div class="cfg-role-tag">Base model</div>
+            <hr class="cfg-divider">
+
+            <div class="cfg-row">
+              <p class="cfg-row-label">📥 Trained on</p>
+              <p class="cfg-row-value"><span class="cfg-em">This game</span><br><span class="cfg-muted">+ strategy data</span></p>
+            </div>
+            <div class="cfg-row">
+              <p class="cfg-row-label">🎯 NPC strategy</p>
+              <p class="cfg-row-value cfg-yes">✓ Follows commands</p>
+            </div>
+          </article>
+
+          <article class="cfg-card cfg-transfer">
+            <div class="cfg-hero-icon" aria-hidden="true">🔄</div>
+            <h3 class="cfg-title">ReactiveGWM<sub>transfer</sub></h3>
+            <div class="cfg-role-tag">Zero-shot transfer</div>
+            <hr class="cfg-divider">
+
+            <div class="cfg-row">
+              <p class="cfg-row-label">📥 Trained on</p>
+              <p class="cfg-row-value"><span class="cfg-em">Another game</span><br><span class="cfg-muted">+ strategy data</span></p>
+            </div>
+            <div class="cfg-row">
+              <p class="cfg-row-label">🎯 NPC strategy</p>
+              <p class="cfg-row-value cfg-yes">✓ Follows commands<br><span class="cfg-zs">(No training on this game)</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- Street Fighter II Comparison Section -->
 <section class="hero is-small" id="sf2-comparison">
   <div class="hero-body">
@@ -101,8 +165,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -166,8 +230,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -231,8 +295,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -297,7 +361,7 @@
           <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf2-prompt-content">Copy Prompt</button>
         </div>
         <p class="prompt-detail-meta" id="sf2-prompt-meta">💡 Click the corresponding video to view its prompt details.</p>
-        <pre class="prompt-detail-content" id="sf2-prompt-content">No prompt selected yet.</pre>
+        <pre class="prompt-detail-content" id="sf2-prompt-content">No video selected yet.</pre>
       </div>
     </div>
   </div>
@@ -331,8 +395,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -396,8 +460,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -461,8 +525,8 @@
             <div class="column is-2">
               <div class="method-names">
                 <h3 class="method-title is-size-4">Vanilla</h3>
-                <h3 class="method-title is-size-4">Base</h3>
-                <h3 class="method-title is-size-4">Transfer</h3>
+<h3 class="method-title is-size-4">ReactiveGWM</h3>
+<h3 class="method-title is-size-4">ReactiveGWM<sub>transfer</sub></h3>
               </div>
             </div>
             
@@ -527,7 +591,7 @@
           <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf3-prompt-content">Copy Prompt</button>
         </div>
         <p class="prompt-detail-meta" id="sf3-prompt-meta">💡 Click the corresponding video to view its prompt details.</p>
-        <pre class="prompt-detail-content" id="sf3-prompt-content">No prompt selected yet.</pre>
+        <pre class="prompt-detail-content" id="sf3-prompt-content">No video selected yet.</pre>
       </div>
     </div>
   </div>
@@ -535,6 +599,137 @@
 
 <!-- Custom CSS for the new layout -->
 <style>
+.config-overview-section {
+  padding-top: 0.4rem;
+}
+
+.config-overview-head {
+  margin: 0 auto 1rem;
+  max-width: 860px;
+}
+
+.config-overview-subtitle {
+  margin: 0.35rem auto 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.config-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.cfg-card {
+  padding: 1.3rem 1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cfg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.cfg-vanilla {
+  border-color: #d4d4d8;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
+
+.cfg-reactive {
+  border-color: #fb923c;
+  background: linear-gradient(180deg, #fff8f1 0%, #fff3e0 100%);
+}
+
+.cfg-transfer {
+  border-color: #86efac;
+  background: linear-gradient(180deg, #f7fff8 0%, #ecfdf3 100%);
+}
+
+.cfg-hero-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.cfg-title {
+  margin: 0.35rem 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cfg-role-tag {
+  display: inline-block;
+  margin-top: 0.45rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.07);
+  color: #475569;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cfg-divider {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 0.85rem 0;
+}
+
+.cfg-row {
+  margin: 0.55rem 0;
+  text-align: left;
+  padding: 0 0.2rem;
+}
+
+.cfg-row-label {
+  margin: 0 0 0.18rem;
+  font-size: 0.79rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.cfg-row-value {
+  margin: 0;
+  font-size: 0.91rem;
+  color: #1e293b;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.cfg-em {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cfg-muted {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.cfg-yes {
+  color: #15803d;
+}
+
+.cfg-no {
+  color: #b91c1c;
+}
+
+.cfg-zs {
+  color: #15803d;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
 .method-names {
   display: flex;
   flex-direction: column;
@@ -755,6 +950,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 1215px) {
+  .config-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .video-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -765,6 +964,20 @@
 }
 
 @media (max-width: 768px) {
+  .config-overview-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .config-cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .cfg-card {
+    padding: 1.05rem 0.85rem 0.95rem;
+  }
+
   .video-row {
     grid-template-columns: 1fr;
   }

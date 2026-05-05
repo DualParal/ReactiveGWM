@@ -79,7 +79,8 @@
         <div class="config-overview-head has-text-centered">
           <h2 class="title is-3">Configuration Overview</h2>
           <p class="config-overview-subtitle">
-            The differences are centered on <strong>training source</strong> and whether <strong>strategy data</strong> is used.
+            A clear comparison across three factors: <strong>training source</strong>, <strong>strategy data usage</strong>, and
+            <strong>whether the NPC follows strategy commands</strong>.
           </p>
         </div>
 
@@ -96,11 +97,11 @@
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-no">Not used</span></span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-off">— Not used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
-                <span class="cfg-metric-value cfg-no">✗ No</span>
+                <span class="cfg-metric-value cfg-no">✗ Does not follow strategy commands</span>
               </li>
             </ul>
           </article>
@@ -117,11 +118,11 @@
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-yes">Used</span></span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-on">✓ Used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
-                <span class="cfg-metric-value cfg-yes">✓ Yes</span>
+                <span class="cfg-metric-value cfg-yes">✓ Follows strategy commands</span>
               </li>
             </ul>
           </article>
@@ -138,11 +139,11 @@
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">Strategy data</span>
-                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-yes">Used</span></span>
+                <span class="cfg-metric-value"><span class="cfg-badge cfg-badge-on">✓ Used</span></span>
               </li>
               <li class="cfg-metric">
                 <span class="cfg-metric-label">NPC strategy following</span>
-                <span class="cfg-metric-value cfg-yes">✓ Yes <span class="cfg-zs">(zero-shot on this game)</span></span>
+                <span class="cfg-metric-value cfg-yes">✓ Follows strategy commands <span class="cfg-zs">(zero-shot on this game)</span></span>
               </li>
             </ul>
           </article>
@@ -618,31 +619,31 @@
 }
 
 .config-overview-head {
-  margin: 0 auto 1rem;
-  max-width: 920px;
+  margin: 0 auto 1.1rem;
+  max-width: 940px;
 }
 
 .config-overview-subtitle {
   margin: 0.35rem auto 0;
-  color: #475569;
+  color: #4b5d78;
   font-size: 0.96rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .config-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  max-width: 980px;
+  gap: 1rem;
+  max-width: 990px;
   margin: 0 auto;
 }
 
 .cfg-card {
-  border-radius: 14px;
-  border: 1px solid #dbe3ef;
-  background: #ffffff;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
-  padding: 0.95rem 0.9rem 0.8rem;
+  border-radius: 16px;
+  border: 1px solid #d9e2f0;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  padding: 1rem 0.95rem 0.85rem;
   overflow: hidden;
 }
 
@@ -651,16 +652,17 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  margin: -0.95rem -0.9rem 0.7rem;
-  padding: 0.58rem 0.78rem;
-  border-bottom: 1px solid #e7edf6;
+  margin: -1rem -0.95rem 0.72rem;
+  padding: 0.62rem 0.82rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .cfg-title {
   margin: 0;
-  font-size: 1.12rem;
+  font-size: 1.13rem;
   font-weight: 800;
-  color: #0f172a;
+  letter-spacing: 0.01em;
+  color: #0f1f3a;
 }
 
 .cfg-pill {
@@ -672,10 +674,10 @@
   font-size: 0.67rem;
   line-height: 1.2;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #1e293b;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.15);
+  letter-spacing: 0.03em;
+  color: #1d3557;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(59, 130, 246, 0.24);
   white-space: nowrap;
 }
 
@@ -688,10 +690,10 @@
 .cfg-metric {
   display: flex;
   flex-direction: column;
-  gap: 0.16rem;
-  padding: 0.45rem 0;
-  border-bottom: 1px dashed #e6edf7;
-  min-height: 3.05rem;
+  gap: 0.17rem;
+  padding: 0.46rem 0;
+  border-bottom: 1px dashed #dbe6f6;
+  min-height: 3.1rem;
 }
 
 .cfg-metric:last-child {
@@ -699,22 +701,22 @@
 }
 
 .cfg-metric-label {
-  font-size: 0.74rem;
-  color: #64748b;
-  font-weight: 600;
+  font-size: 0.73rem;
+  color: #5f7392;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.045em;
 }
 
 .cfg-metric-value {
   font-size: 0.93rem;
-  line-height: 1.35;
-  color: #0f172a;
+  line-height: 1.38;
+  color: #12233f;
   font-weight: 600;
 }
 
 .cfg-note {
-  color: #64748b;
+  color: #60728f;
   font-size: 0.82rem;
   font-weight: 500;
 }
@@ -723,63 +725,63 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 4.7rem;
-  padding: 0.18rem 0.58rem;
+  min-width: 5rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.2;
   border: 1px solid transparent;
 }
 
-.cfg-badge-yes {
-  color: #166534;
-  background: #dcfce7;
-  border-color: #86efac;
+.cfg-badge-on {
+  color: #1d4ed8;
+  background: #e8f0ff;
+  border-color: #bfdbfe;
 }
 
-.cfg-badge-no {
-  color: #991b1b;
-  background: #fee2e2;
-  border-color: #fca5a5;
+.cfg-badge-off {
+  color: #5b6f8f;
+  background: #eef3fb;
+  border-color: #d6e2f6;
 }
 
 .cfg-yes {
-  color: #15803d;
+  color: #1e3a8a;
 }
 
 .cfg-no {
-  color: #b91c1c;
+  color: #334155;
 }
 
 .cfg-zs {
   font-size: 0.77rem;
   font-weight: 500;
-  color: #15803d;
+  color: #44618f;
 }
 
 .cfg-vanilla {
-  border-top: 3px solid #93c5fd;
+  border-top: 3px solid #bfdbfe;
 }
 
 .cfg-base {
-  border-top: 3px solid #3b82f6;
+  border-top: 3px solid #60a5fa;
 }
 
 .cfg-transfer {
-  border-top: 3px solid #1d4ed8;
+  border-top: 3px solid #2563eb;
 }
 
 .cfg-vanilla .cfg-card-top {
-  background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+  background: linear-gradient(180deg, #f6faff 0%, #ecf4ff 100%);
 }
 
 .cfg-base .cfg-card-top {
-  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
+  background: linear-gradient(180deg, #edf4ff 0%, #dceaff 100%);
 }
 
 .cfg-transfer .cfg-card-top {
-  background: linear-gradient(180deg, #bfdbfe 0%, #93c5fd 100%);
+  background: linear-gradient(180deg, #e2edff 0%, #c9ddff 100%);
 }
 
 .method-names {

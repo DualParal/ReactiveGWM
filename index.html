@@ -82,12 +82,12 @@
       <div class="control-legend" aria-label="SF2 button mapping">
         <p class="legend-title">SF2 Button Mapping</p>
         <div class="legend-grid">
-          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Kick (LK)</span></div>
-          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Medium Kick (MK)</span></div>
-          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Heavy Kick (HK)</span></div>
           <div class="legend-item"><span class="legend-key">X</span><span class="legend-text">Light Punch (LP)</span></div>
           <div class="legend-item"><span class="legend-key">Y</span><span class="legend-text">Medium Punch (MP)</span></div>
           <div class="legend-item"><span class="legend-key">Z</span><span class="legend-text">Heavy Punch (HP)</span></div>
+          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Kick (LK)</span></div>
+          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Medium Kick (MK)</span></div>
+          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Heavy Kick (HK)</span></div>
         </div>
       </div>
 
@@ -296,7 +296,7 @@
           <h3 class="prompt-detail-title">Prompt Detail</h3>
           <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf2-prompt-content">Copy Prompt</button>
         </div>
-        <p class="prompt-detail-meta" id="sf2-prompt-meta">Click any video to view its full prompt.</p>
+        <p class="prompt-detail-meta" id="sf2-prompt-meta">💡 Click the corresponding video to view its prompt details.</p>
         <pre class="prompt-detail-content" id="sf2-prompt-content">No prompt selected yet.</pre>
       </div>
     </div>
@@ -312,12 +312,12 @@
       <div class="control-legend" aria-label="SF3 button mapping">
         <p class="legend-title">SF3 Button Mapping</p>
         <div class="legend-grid">
-          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Punch (LP)</span></div>
-          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Light Kick (LK)</span></div>
-          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Medium Kick (MK)</span></div>
           <div class="legend-item"><span class="legend-key">X</span><span class="legend-text">Heavy Punch (HP)</span></div>
           <div class="legend-item"><span class="legend-key">Y</span><span class="legend-text">Medium Punch (MP)</span></div>
           <div class="legend-item"><span class="legend-key">Z</span><span class="legend-text">Heavy Kick (HK)</span></div>
+          <div class="legend-item"><span class="legend-key">A</span><span class="legend-text">Light Punch (LP)</span></div>
+          <div class="legend-item"><span class="legend-key">B</span><span class="legend-text">Light Kick (LK)</span></div>
+          <div class="legend-item"><span class="legend-key">C</span><span class="legend-text">Medium Kick (MK)</span></div>
         </div>
       </div>
 
@@ -526,7 +526,7 @@
           <h3 class="prompt-detail-title">Prompt Detail</h3>
           <button class="button is-small is-light prompt-copy-btn" type="button" data-target="sf3-prompt-content">Copy Prompt</button>
         </div>
-        <p class="prompt-detail-meta" id="sf3-prompt-meta">Click any video to view its full prompt.</p>
+        <p class="prompt-detail-meta" id="sf3-prompt-meta">💡 Click the corresponding video to view its prompt details.</p>
         <pre class="prompt-detail-content" id="sf3-prompt-content">No prompt selected yet.</pre>
       </div>
     </div>
@@ -973,7 +973,7 @@
               const currentCard = videoEl.closest('.method-video');
               if (currentCard) currentCard.classList.add('selected');
 
-              promptMeta.textContent = `Selected: ${asset.id} · ${scenario} · ${method}`;
+              promptMeta.textContent = `💡 Selected: ${asset.id} · ${scenario} · ${method}`;
               promptContent.textContent = 'Loading prompt...';
 
               try {
